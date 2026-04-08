@@ -36,7 +36,8 @@ export default function Home() {
           objectFit: 'cover',
           zIndex: -1,
         }}
-        priority // Ensures this loads immediately as it's the LCP element
+        priority // <--- Crucial
+  fetchPriority="high" // <--- Add this for LCP
       />      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16   sm:items-start">
         <div className="w-full flex items-center flex-col justify-center">
           <Image
