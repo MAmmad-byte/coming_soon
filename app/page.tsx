@@ -24,8 +24,20 @@ export default function Home() {
     }
   }
   return (
-    <div className=" bg-[url('/coming_soon_bg.png')] bg-cover bg-center flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans ">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16   sm:items-start">
+<div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden"><Image
+        alt="Background"
+        src="/coming_soon_bg.jpg" // Use the high-res original
+        placeholder="blur"        // Optional: adds a blurred effect while loading
+        blurDataURL="/coming_soon_bg.jpg" 
+        quality={100}
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: 'cover',
+          zIndex: -1,
+        }}
+        priority // Ensures this loads immediately as it's the LCP element
+      />      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16   sm:items-start">
         <div className="w-full flex items-center flex-col justify-center">
           <Image
             src={"/wing_cycle.png"}
