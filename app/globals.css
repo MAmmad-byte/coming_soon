@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfaf1; /* Warm Ghibli cream background */
+  --foreground: #3D4034;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sniglet);
-  --font-mono: var(--font-quicksand);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Map the Next.js variables to Tailwind font keys */
+  --font-sniglet: var(--font-sniglet);
+  --font-quicksand: var(--font-quicksand);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Use the variable directly here */
+  font-family: var(--font-sniglet), system-ui, sans-serif;
+}
+
+@keyframes ghibliFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-ghibli {
+  opacity: 0;
+  animation: ghibliFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
